@@ -1,0 +1,581 @@
+/* ===== 変数 ===== */
+:root {
+  --color-bg: #f6f1e7;
+  --color-bg-alt: #efe6d5;
+  --color-text: #2c2013;
+  --color-text-soft: #5a4a37;
+  --color-brown-dark: #3b2a1c;
+  --color-brown: #7a5230;
+  --color-brown-light: #b08d63;
+  --color-line: #d8cbb3;
+  --color-accent: #8a4b2b;
+
+  --font-mincho: "Yu Mincho", "YuMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
+  --font-gothic: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+
+  --container-width: 1040px;
+}
+
+/* ===== リセット ===== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mincho);
+  font-size: 16px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-gothic);
+  font-weight: 800;
+  color: var(--color-brown-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+p {
+  margin: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== レイアウト共通 ===== */
+.section-inner,
+.header-inner,
+.hero-inner {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 72px 0;
+  scroll-margin-top: 84px;
+}
+
+#parts.section {
+  padding-top: 56px;
+}
+
+.section-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section-eyebrow {
+  font-family: var(--font-gothic);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-brown-light);
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  border-left: 6px solid var(--color-accent);
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+
+.section-lead {
+  color: var(--color-text-soft);
+  max-width: 62ch;
+  margin-bottom: 56px;
+  font-size: 1.02rem;
+}
+
+/* ===== ヘッダー ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(246, 241, 231, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.logo {
+  font-family: var(--font-gothic);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--color-brown-dark);
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.main-nav a {
+  display: inline-block;
+  font-family: var(--font-gothic);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-soft);
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.main-nav a:hover {
+  background-color: var(--color-bg-alt);
+  color: var(--color-brown-dark);
+}
+
+.main-nav a.is-active {
+  background-color: var(--color-brown-dark);
+  color: var(--color-bg);
+}
+
+/* ===== ヒーロー ===== */
+.hero {
+  padding: 120px 0 56px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(122, 82, 48, 0.12), transparent 60%),
+    var(--color-bg);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-gothic);
+  letter-spacing: 0.3em;
+  font-size: 0.8rem;
+  color: var(--color-brown-light);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.06em;
+  margin-bottom: 28px;
+}
+
+.hero-lead {
+  font-family: var(--font-mincho);
+  color: var(--color-text-soft);
+  font-size: 1.05rem;
+  max-width: 46ch;
+  margin: 0 auto;
+}
+
+/* ===== 部位図解 ===== */
+.parts-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 460px) 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.shoe-diagram {
+  background-color: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  padding: 32px 24px 40px;
+}
+
+.shoe-photo-frame {
+  position: relative;
+  width: 100%;
+}
+
+.shoe-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-gothic);
+  font-weight: 800;
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 5px rgba(44, 32, 19, 0.45);
+}
+
+.parts-legend li {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.parts-legend li:first-child {
+  padding-top: 0;
+}
+
+.legend-num {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--color-brown-dark);
+  color: var(--color-bg);
+  font-family: var(--font-gothic);
+  font-weight: 800;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parts-legend strong {
+  font-family: var(--font-gothic);
+  display: block;
+  margin-bottom: 4px;
+  color: var(--color-brown-dark);
+}
+
+.parts-legend p {
+  color: var(--color-text-soft);
+  font-size: 0.94rem;
+}
+
+.glossary-extra {
+  display: grid;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--color-line);
+}
+
+.glossary-extra strong {
+  font-family: var(--font-gothic);
+  color: var(--color-brown-dark);
+  margin-right: 6px;
+}
+
+.glossary-extra li {
+  color: var(--color-text-soft);
+  font-size: 0.94rem;
+}
+
+/* ===== 比較表 ===== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-line);
+  font-size: 0.95rem;
+  vertical-align: top;
+}
+
+.compare-table thead th {
+  font-family: var(--font-gothic);
+  background-color: var(--color-brown-dark);
+  color: var(--color-bg);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.compare-table tbody th {
+  font-family: var(--font-gothic);
+  color: var(--color-brown-dark);
+  white-space: nowrap;
+  background-color: var(--color-bg-alt);
+}
+
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.compare-table td {
+  color: var(--color-text-soft);
+}
+
+/* ===== デザインカード ===== */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 28px;
+}
+
+.design-card {
+  background-color: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  padding: 28px 24px;
+}
+
+.design-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+
+.design-card p {
+  color: var(--color-text-soft);
+  font-size: 0.92rem;
+}
+
+.design-icon {
+  width: 88px;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  overflow: visible;
+}
+
+.toe-base {
+  fill: var(--color-bg-alt);
+  stroke: var(--color-brown);
+  stroke-width: 2.5;
+}
+
+.toe-mark {
+  stroke: var(--color-brown);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.toe-dot {
+  fill: var(--color-brown);
+}
+
+.toe-strap {
+  fill: var(--color-brown);
+}
+
+.toe-buckle {
+  fill: var(--color-bg);
+  stroke: var(--color-brown-dark);
+  stroke-width: 2;
+}
+
+.toe-buckle-pin {
+  stroke: var(--color-brown-dark);
+  stroke-width: 2;
+}
+
+/* ===== 革の種類 ===== */
+.leather-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 28px;
+}
+
+.leather-card {
+  background-color: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.leather-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+}
+
+.leather-card p {
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+.swatch {
+  height: 88px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  border: 1px solid var(--color-line);
+}
+
+.swatch-calf {
+  background: linear-gradient(135deg, #9c6a3f, #6f4626 60%, #55351c);
+}
+
+.swatch-cordovan {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.25), transparent 55%),
+    linear-gradient(135deg, #6e2f2a, #4a1f1c 70%);
+}
+
+.swatch-suede {
+  background-color: #7c5b3f;
+  background-image: repeating-linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+}
+
+.swatch-kip {
+  background: linear-gradient(135deg, #8a6035, #5f4023 65%);
+}
+
+.swatch-embossed {
+  background-color: #4f3a22;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.18) 0 4px, transparent 4px 10px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0 4px, transparent 4px 10px);
+}
+
+/* ===== お手入れステップ ===== */
+.care-steps {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: 8px;
+}
+
+.care-steps::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background-color: var(--color-line);
+}
+
+.care-steps li {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding: 0 0 40px 0;
+}
+
+.care-steps li:last-child {
+  padding-bottom: 0;
+}
+
+.step-num {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--color-brown-dark);
+  color: var(--color-bg);
+  font-family: var(--font-gothic);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.care-steps h3 {
+  font-size: 1.02rem;
+  margin-bottom: 8px;
+}
+
+.care-steps p {
+  color: var(--color-text-soft);
+  font-size: 0.94rem;
+}
+
+/* ===== フッター ===== */
+.site-footer {
+  padding: 32px 24px;
+  text-align: center;
+  color: var(--color-text-soft);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--color-line);
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 860px) {
+  .parts-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  #parts.section {
+    padding-top: 40px;
+  }
+
+  .header-inner {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .main-nav ul {
+    justify-content: center;
+  }
+
+  .main-nav a {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .hero {
+    padding: 88px 0 40px;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .care-steps li {
+    gap: 16px;
+  }
+}
